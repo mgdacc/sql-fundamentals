@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de SQL para Principiantes</title>
+    <style>
+        /* === ESTILOS GLOBALES Y DE ESCRITORIO === */
+        body {
+            font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 0;
+            padding: 40px; display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; box-sizing: border-box; transition: padding 0.3s ease;
+        }
+
+        .slideshow-container { position: relative; width: 90%; max-width: 960px; }
+        
+        .slide {
+            display: none; background-color: #fff; border: 1px solid #ccc;
+            height: 540px; padding: 40px 60px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            flex-direction: column; justify-content: center; position: relative;
+            box-sizing: border-box;
+        }
+
+        .fade { animation-name: fade; animation-duration: 0.5s; }
+        @keyframes fade { from {opacity: .4} to {opacity: 1} }
+
+        .prev, .next {
+            cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%);
+            width: 50px; height: 50px; background-color: #cccccc; color: #333;
+            border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex; justify-content: center; align-items: center;
+            font-weight: bold; font-size: 24px; transition: all 0.3s ease;
+            user-select: none; z-index: 10;
+        }
+
+        .prev { left: -70px; }
+        .next { right: -70px; }
+        .prev:hover, .next:hover { background-color: #aaaaaa; }
+
+        .slide h1 { font-size: 3.5em; text-align: center; border-bottom: 4px solid #256eff; padding-bottom: 20px; color: #005A9C; }
+        .slide h2 { font-size: 2.8em; margin-top: 0; margin-bottom: 30px; text-align: center; color: #005A9C; }
+        .single-content { text-align: center; }
+        .single-content p { font-size: 1.5em; color: #444; }
+        .single-content pre { font-size: 1.2em; display: inline-block; text-align: left; max-width: 100%; }
+        pre { background-color: #2d3636; color: #fff; padding: 15px; border-radius: 5px; font-size: 1.1em; white-space: pre-wrap; }
+        .footer { position: absolute; bottom: 20px; right: 40px; font-size: 1em; color: #888; }
+
+        /* === MEDIA QUERIES === */
+        @media screen and (max-width: 768px) {
+            body { padding: 15px; }
+            .slideshow-container { width: 100%; padding-bottom: 75px; }
+            .slide { height: auto; min-height: 75vh; padding: 20px 25px; }
+            .prev, .next { top: auto; bottom: 15px; width: 45px; height: 45px; }
+            .prev { left: 50%; transform: translateX(-110%); }
+            .next { left: 50%; transform: translateX(10%); right: auto; }
+            .slide h1 { font-size: 2.2em; }
+            .slide h2 { font-size: 1.8em; }
+            .single-content p { font-size: 1.1em; }
+            .single-content pre { font-size: 1em; }
+            .footer { font-size: 0.8em; right: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slideshow-container">
+        
+        <!-- =============================================================== -->
+        <!-- INICIO DEL CONTENIDO DE LAS DIAPOSITIVAS - ¡EDITA AQUÍ! -->
+        <!-- =============================================================== -->
+
+        <!-- DIAPOSITIVA DE TÍTULO -->
+        <div class="slide fade">
+            <h1>Cheat Sheet de SQL</h1>
+            <h2 style="color:#333; border:none;">Fundamentos</h2>
+            <div class="footer">1 / 9</div>
+        </div>
+
+        <!-- DIAPOSITIVA DE CONTENIDO -->
+        <div class="slide fade">
+            <h2>¿Qué es una Base de Datos?</h2>
+            <div class="single-content">
+                <p>Imagina un archivador digital muy organizado. En lugar de carpetas, tiene "tablas" donde se guarda la información de forma estructurada.</p>
+            </div>
+            <div class="footer">2 / 9</div>
+        </div>
+        
+        <!-- OTRA DIAPOSITIVA DE CONTENIDO -->
+        <div class="slide fade">
+            <h2>¿Qué es una Tabla?</h2>
+            <div class="single-content">
+                <p>Es como una hoja de cálculo. Tiene filas (registros) y columnas (campos) para organizar los datos. Por ejemplo, una tabla de "Usuarios".</p>
+                <pre><code>+----+---------+-------------------+
+| ID | Nombre  | Email             |
++----+---------+-------------------+
+| 1  | Ana     | ana@email.com     |
+| 2  | Luis    | luis@email.com    |
++----+---------+-------------------+</code></pre>
+            </div>
+            <div class="footer">3 / 9</div>
+        </div>
+
+        <!-- OTRA DIAPOSITIVA DE CONTENIDO -->
+        <div class="slide fade">
+            <h2>¿Qué es SQL?</h2>
+            <div class="single-content">
+                <p>SQL (Structured Query Language) es el idioma que usamos para comunicarnos con la base de datos. Le damos órdenes como "dame estos datos" o "guarda esta información".</p>
+            </div>
+            <div class="footer">4 / 9</div>
+        </div>
+
+        <!-- OTRA DIAPOSITIVA DE CONTENIDO -->
+        <div class="slide fade">
+            <h2>SELECT: Consultar Datos</h2>
+            <div class="single-content">
+                <p>Es el comando más usado. Sirve para leer o seleccionar datos de una tabla. Se combina con FROM para indicar de qué tabla.</p>
+                <pre><code>-- Selecciona todos los datos de la tabla Usuarios
+SELECT * FROM Usuarios;</code></pre>
+            </div>
+            <div class="footer">5 / 9</div>
+        </div>
+
+        <!-- OTRA DIAPOSITIVA DE CONTENIDO -->
+        <div class="slide fade">
+            <h2>WHERE: Filtrar Resultados</h2>
+            <div class="single-content">
+                <p>La cláusula WHERE te permite poner condiciones para obtener solo los registros que necesitas.</p>
+                <pre><code>-- Selecciona solo al usuario con ID = 1
+SELECT * FROM Usuarios WHERE ID = 1;</code></pre>
+            </div>
+            <div class="footer">6 / 9</div>
+        </div>
+
+        <!-- OTRA DIAPOSITIVA DE CONTENIDO -->
+        <div class="slide fade">
+            <h2>INSERT INTO: Añadir Datos</h2>
+            <div class="single-content">
+                <p>Se utiliza para agregar nuevas filas (registros) a una tabla.</p>
+                <pre><code>-- Agrega un nuevo usuario a la tabla
+INSERT INTO Usuarios (ID, Nombre, Email)
+VALUES (3, 'Carlos', 'carlos@email.com');</code></pre>
+            </div>
+            <div class="footer">7 / 9</div>
+        </div>
+
+        <!-- OTRA DIAPOSITIVA DE CONTENIDO -->
+        <div class="slide fade">
+            <h2>UPDATE: Modificar Datos</h2>
+            <div class="single-content">
+                <p>Permite cambiar valores en registros que ya existen. ¡Cuidado! Siempre usa WHERE para no modificar toda la tabla.</p>
+                <pre><code>-- Cambia el email del usuario con ID = 2
+UPDATE Usuarios
+SET Email = 'luis.nuevo@email.com'
+WHERE ID = 2;</code></pre>
+            </div>
+            <div class="footer">8 / 9</div>
+        </div>
+
+        <!-- OTRA DIAPOSITIVA DE CONTENIDO -->
+        <div class="slide fade">
+            <h2>Resumen y Próximos Pasos</h2>
+            <div class="single-content">
+                <p>¡Felicidades! Ya conoces los 4 pilares de SQL (CRUD):</p>
+                <p style="font-size: 1.2em;">
+                    <b>SELECT</b> (Leer), <b>INSERT</b> (Crear),<br>
+                    <b>UPDATE</b> (Actualizar), <b>DELETE</b> (Borrar).
+                </p>
+                <p>Con esto, ya puedes realizar las operaciones más importantes en cualquier base de datos. ¡El siguiente paso es practicar!</p>
+            </div>
+            <div class="footer">9 / 9</div>
+        </div>
+
+
+        <!-- =============================================================== -->
+        <!-- FIN DEL CONTENIDO DE LAS DIAPOSITIVAS -->
+        <!-- =============================================================== -->
+
+        <!-- Botones de navegación (No es necesario editar) -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <!-- Lógica de JavaScript (No es necesario editar) -->
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            if (n > slides.length) { slideIndex = 1 } 
+            if (n < 1) { slideIndex = slides.length }
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            
+            slides[slideIndex - 1].style.display = "flex";
+        }
+    </script>
+
+</body>
+</html>
