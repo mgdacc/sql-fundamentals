@@ -73,7 +73,7 @@
         <div class="slide fade">
             <h1>Cheat Sheet de SQL</h1>
             <h2 style="color:#333; border:none;">Fundamentos</h2>
-            <div class="footer">1 / 9</div>
+            <div class="footer">1 / 10</div>
         </div>
 
         <!-- DIAPOSITIVA DE CONTENIDO -->
@@ -82,7 +82,7 @@
             <div class="single-content">
                 <p>Imagina un archivador digital muy organizado. En lugar de carpetas, tiene "tablas" donde se guarda la información de forma estructurada.</p>
             </div>
-            <div class="footer">2 / 9</div>
+            <div class="footer">2 / 10</div>
         </div>
         
         <!-- OTRA DIAPOSITIVA DE CONTENIDO -->
@@ -97,7 +97,7 @@
 | 2  | Luis    | luis@email.com    |
 +----+---------+-------------------+</code></pre>
             </div>
-            <div class="footer">3 / 9</div>
+            <div class="footer">3 / 10</div>
         </div>
 
         <!-- OTRA DIAPOSITIVA DE CONTENIDO -->
@@ -106,7 +106,22 @@
             <div class="single-content">
                 <p>SQL (Structured Query Language) es el idioma que usamos para comunicarnos con la base de datos. Le damos órdenes como "dame estos datos" o "guarda esta información".</p>
             </div>
-            <div class="footer">4 / 9</div>
+            <div class="footer">4 / 10</div>
+        </div>
+
+        <!-- DIAPOSITIVA AÑADIDA -->
+        <div class="slide fade">
+            <h2>CREATE TABLE: Crear una Tabla</h2>
+            <div class="single-content">
+                <p>Usamos este comando para construir la estructura de una tabla, definiendo sus columnas y el tipo de dato que cada una guardará.</p>
+                <pre><code>-- Así se crearía la tabla Usuarios:
+CREATE TABLE Usuarios (
+    ID INT,
+    Nombre VARCHAR(100),
+    Email VARCHAR(100)
+);</code></pre>
+            </div>
+            <div class="footer">5 / 10</div>
         </div>
 
         <!-- OTRA DIAPOSITIVA DE CONTENIDO -->
@@ -117,7 +132,7 @@
                 <pre><code>-- Selecciona todos los datos de la tabla Usuarios
 SELECT * FROM Usuarios;</code></pre>
             </div>
-            <div class="footer">5 / 9</div>
+            <div class="footer">6 / 10</div>
         </div>
 
         <!-- OTRA DIAPOSITIVA DE CONTENIDO -->
@@ -128,7 +143,7 @@ SELECT * FROM Usuarios;</code></pre>
                 <pre><code>-- Selecciona solo al usuario con ID = 1
 SELECT * FROM Usuarios WHERE ID = 1;</code></pre>
             </div>
-            <div class="footer">6 / 9</div>
+            <div class="footer">7 / 10</div>
         </div>
 
         <!-- OTRA DIAPOSITIVA DE CONTENIDO -->
@@ -140,7 +155,7 @@ SELECT * FROM Usuarios WHERE ID = 1;</code></pre>
 INSERT INTO Usuarios (ID, Nombre, Email)
 VALUES (3, 'Carlos', 'carlos@email.com');</code></pre>
             </div>
-            <div class="footer">7 / 9</div>
+            <div class="footer">8 / 10</div>
         </div>
 
         <!-- OTRA DIAPOSITIVA DE CONTENIDO -->
@@ -153,7 +168,7 @@ UPDATE Usuarios
 SET Email = 'luis.nuevo@email.com'
 WHERE ID = 2;</code></pre>
             </div>
-            <div class="footer">8 / 9</div>
+            <div class="footer">9 / 10</div>
         </div>
 
         <!-- OTRA DIAPOSITIVA DE CONTENIDO -->
@@ -167,7 +182,7 @@ WHERE ID = 2;</code></pre>
                 </p>
                 <p>Con esto, ya puedes realizar las operaciones más importantes en cualquier base de datos. ¡El siguiente paso es practicar!</p>
             </div>
-            <div class="footer">9 / 9</div>
+            <div class="footer">10 / 10</div>
         </div>
 
 
