@@ -1,2 +1,2 @@
-# sql-fundamentals
-SQL Fundamentals Cheat Sheet
+# SQL: Fundamentals
+Cheat Sheet creado por **Gemini 2.5 Pro** sobre los fundamentos de SQL.
